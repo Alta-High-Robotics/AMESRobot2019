@@ -11,6 +11,7 @@ import org.usfirst.frc.team7634.robot.Robot;
 import org.usfirst.frc.team7634.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team7634.robot.RobotSettings;
 
 /**
  * An example command.  You can replace me with your own command.
@@ -26,8 +27,8 @@ public class TankDriveCommand extends Command {
 
 	@Override
 	protected void execute() {
-		Robot.driveTrain.left_axis = Robot.oi.getController().getRawAxis(RobotMap.CONTROLLER_AXIS_LEFT);
-		Robot.driveTrain.right_axis = Robot.oi.getController().getRawAxis(RobotMap.CONTROLLER_AXIS_RIGHT);
+		Robot.driveTrain.left_axis = Robot.oi.getController().getRawAxis(RobotMap.CONTROLLER_AXIS_LEFT) * RobotSettings.DRIVE_SPEED;
+		Robot.driveTrain.right_axis = Robot.oi.getController().getRawAxis(RobotMap.CONTROLLER_AXIS_RIGHT) * RobotSettings.DRIVE_SPEED;
 		Robot.driveTrain.tankDrive();
 	}
 
