@@ -18,6 +18,10 @@ import edu.wpi.first.wpilibj.XboxController;
 public class OI {
 	int port = RobotMap.XBOX_PORT;
 	XboxController controller = new XboxController(port);
+
+	public OI() {
+
+	}
 	
 	public XboxController getController() {
 		return controller;

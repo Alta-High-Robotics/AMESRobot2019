@@ -23,13 +23,13 @@ public class RobotMap {
 	    VICTOR_LEFT1 = 3,
 	    VICTOR_LEFT2 = 4,
 	    
-	    // Winch
+	    //winch
 	    WINCH_VICTOR = 5,
 	    
-	    // launcher
+	    //launcher
 	    LAUNCHER_VICTOR = 6,
 	    
-	    // Munch-do (claw/cube-grabber)
+	    //Munch-do (claw/cube-grabber)
 	    GRABBER_MOTOR1 = 7,
 		GRABBER_MOTOR2 = 8,
 	

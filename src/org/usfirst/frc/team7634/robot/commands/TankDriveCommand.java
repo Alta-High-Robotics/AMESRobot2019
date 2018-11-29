@@ -15,8 +15,8 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  * An example command.  You can replace me with your own command.
  */
-public class DriveCommand extends Command {
-	public DriveCommand() {
+public class TankDriveCommand extends Command {
+	public TankDriveCommand() {
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.driveTrain);
 	}
@@ -28,7 +28,7 @@ public class DriveCommand extends Command {
 	protected void execute() {
 		Robot.driveTrain.left_axis = Robot.oi.getController().getRawAxis(RobotMap.CONTROLLER_AXIS_LEFT);
 		Robot.driveTrain.right_axis = Robot.oi.getController().getRawAxis(RobotMap.CONTROLLER_AXIS_RIGHT);
-		Robot.driveTrain.drive();
+		Robot.driveTrain.tankDrive();
 	}
 
 	@Override

@@ -8,13 +8,13 @@
 package org.usfirst.frc.team7634.robot.subsystems;
 
 import org.usfirst.frc.team7634.robot.RobotMap;
-import org.usfirst.frc.team7634.robot.commands.DriveCommand;
 
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import org.usfirst.frc.team7634.robot.commands.TankDriveCommand;
 
 /**
  * An example subsystem.  You can replace me with your own Subsystem.
@@ -32,12 +32,16 @@ public class DriveTrain extends Subsystem {
 
 	public double left_axis = 0.0, right_axis = 0.0;
 
-	public void drive() {
+	public void tankDrive() {
 		drive.tankDrive(left_axis, right_axis);
 	}
-	
+
+	public void arcadeDrive() {
+		return;
+	}
+
 	@Override
 	public void initDefaultCommand() {
-		this.setDefaultCommand(new DriveCommand());
+		this.setDefaultCommand(new TankDriveCommand());
 	}
 }
