@@ -27,8 +27,8 @@ public class TankDriveCommand extends Command {
 
 	@Override
 	protected void execute() {
-		Robot.driveTrain.left_axis = Robot.oi.getController().getRawAxis(RobotMap.CONTROLLER_AXIS_LEFT) * RobotSettings.DRIVE_SPEED;
-		Robot.driveTrain.right_axis = Robot.oi.getController().getRawAxis(RobotMap.CONTROLLER_AXIS_RIGHT) * RobotSettings.DRIVE_SPEED;
+		Robot.driveTrain.left_axis = Robot.oi.getController().getRawAxis(RobotMap.CONTROLLER_AXIS_LEFT) * RobotSettings.DRIVE_DIRECTION;
+		Robot.driveTrain.right_axis = Robot.oi.getController().getRawAxis(RobotMap.CONTROLLER_AXIS_RIGHT) * RobotSettings.DRIVE_DIRECTION;
 		Robot.driveTrain.tankDrive();
 	}
 

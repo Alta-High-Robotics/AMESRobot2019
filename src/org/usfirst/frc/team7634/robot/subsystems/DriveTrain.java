@@ -7,6 +7,8 @@
 
 package org.usfirst.frc.team7634.robot.subsystems;
 
+import edu.wpi.first.wpilibj.GenericHID;
+import org.usfirst.frc.team7634.robot.Robot;
 import org.usfirst.frc.team7634.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
@@ -14,6 +16,7 @@ import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import org.usfirst.frc.team7634.robot.RobotSettings;
 import org.usfirst.frc.team7634.robot.commands.TankDriveCommand;
 
 /**
@@ -22,8 +25,8 @@ import org.usfirst.frc.team7634.robot.commands.TankDriveCommand;
 public class DriveTrain extends Subsystem {
 	Victor left1 = new Victor(RobotMap.VICTOR_LEFT1);
 	Victor left2 = new Victor(RobotMap.VICTOR_LEFT2);
-	Talon right1 = new Talon(RobotMap.VICTOR_RIGHT1);
-	Talon right2 = new Talon(RobotMap.VICTOR_RIGHT2);
+	Victor right1 = new Victor(RobotMap.VICTOR_RIGHT1);
+	Victor right2 = new Victor(RobotMap.VICTOR_RIGHT2);
 
 	//groups both motors as one drive, both motors required for movement
 	public SpeedControllerGroup leftSideDrive = new SpeedControllerGroup(left1, left2);
@@ -33,11 +36,12 @@ public class DriveTrain extends Subsystem {
 	public double left_axis = 0.0, right_axis = 0.0;
 
 	public void tankDrive() {
-		drive.tankDrive(left_axis, right_axis);
+		double spd = RobotSettings.DRIVE_SPEED;
+		drive.tankDrive(left_axis * spd, right_axis * spd);
 	}
 
 	public void arcadeDrive() {
-		return;
+		drive.arcadeDrive(Robot.oi.getController().getY(GenericHID.Hand.kLeft), Robot.oi.getController().getX(GenericHID.Hand.kRight));
 	}
 
 	@Override

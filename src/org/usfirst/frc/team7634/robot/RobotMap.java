@@ -20,11 +20,11 @@ public class RobotMap {
 	    //drive train
 	    VICTOR_RIGHT1 = 1,
 	    VICTOR_RIGHT2 = 2,
-	    VICTOR_LEFT1 = 3,
-	    VICTOR_LEFT2 = 4,
+	    VICTOR_LEFT1 = 9,
+	    VICTOR_LEFT2 = 10,
 	    
 	    //winch
-	    WINCH_VICTOR = 5,
+		WINCH_VICTOR = 5,
 	    
 	    //launcher
 	    LAUNCHER_VICTOR = 6,
@@ -36,7 +36,11 @@ public class RobotMap {
 	    //controller axis for drive train
 	    CONTROLLER_AXIS_LEFT = 1,
 	    CONTROLLER_AXIS_RIGHT = 5,
-	
+
+		//controller axis for claws
+		LEFT_TRIGGER_AXIS = 3,
+		RIGHT_TRIGGER_AXIS = 4,
+
 	    //t-shirt launcher
 	    LAUNCHER_PNEUMATIC = 0,
 	    VICTOR_LAUNCHER = 2;
