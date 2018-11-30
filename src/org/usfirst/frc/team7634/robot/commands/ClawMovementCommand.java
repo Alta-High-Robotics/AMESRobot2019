@@ -20,7 +20,6 @@ public class ClawMovementCommand extends Command {
     }
 
     //debug: if ramp up doesn't work, test if current speed is actually being incremented. if not, use class type saved variable.
-
     @Override
     protected void execute() {
 		double left_trigger = Robot.oi.getController().getTriggerAxis(GenericHID.Hand.kLeft);
@@ -32,24 +31,19 @@ public class ClawMovementCommand extends Command {
 		if (currentSpeed >= 0.99) {
 			currentSpeed = 0.97;
 		}
-		if (left_trigger > 0) { //on left trigger press
-			if (right_trigger > 0) { //reset if both inputs are held
-				currentSpeed = 0.15;
-			}
-			Robot.cubeGrabber.release(left_trigger);
-		} else {
-			currentSpeed = 0.15;
-		}
-
-		if (right_trigger > 0) { //on right trigger press
+		if (right_trigger > 0.10) { //on right trigger press -- dominant, affects left release.
 			if (left_trigger > 0) {
 				currentSpeed = 0.15;
 			}
 			currentSpeed += 0.03;
 			Robot.cubeGrabber.grab(currentSpeed);
-		} else {
-			currentSpeed = 0.15;
 		}
+		else if (left_trigger > 0.10) { //on left trigger press -- but no right
+			Robot.cubeGrabber.release(left_trigger);
+		} else {
+			currentSpeed = 0.15; //default case, keep it spinning for holding cubes
+		}
+
     }
 
     @Override
