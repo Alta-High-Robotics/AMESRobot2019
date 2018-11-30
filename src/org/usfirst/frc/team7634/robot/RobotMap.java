@@ -20,8 +20,8 @@ public class RobotMap {
 	    //drive train
 	    VICTOR_RIGHT1 = 1,
 	    VICTOR_RIGHT2 = 2,
-	    VICTOR_LEFT1 = 9,
-	    VICTOR_LEFT2 = 10,
+	    VICTOR_LEFT1 = 3,
+	    VICTOR_LEFT2 = 4,
 	    
 	    //winch
 		WINCH_VICTOR = 5,
