@@ -42,6 +42,7 @@ public class ClawMovementCommand extends Command {
 			Robot.cubeGrabber.release(left_trigger);
 		} else {
 			currentSpeed = 0.15; //default case, keep it spinning for holding cubes
+			Robot.cubeGrabber.grab(currentSpeed);
 		}
 
     }
