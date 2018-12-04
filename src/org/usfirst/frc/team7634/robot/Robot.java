@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team7634.robot.commands.TankDriveCommand;
 import org.usfirst.frc.team7634.robot.subsystems.CubeGrabber;
+import org.usfirst.frc.team7634.robot.subsystems.CubeLifter;
 import org.usfirst.frc.team7634.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team7634.robot.subsystems.DriveTrain;
 
@@ -28,6 +29,7 @@ import org.usfirst.frc.team7634.robot.subsystems.DriveTrain;
 public class Robot extends TimedRobot {
 	public static DriveTrain driveTrain = new DriveTrain();
 	public static CubeGrabber cubeGrabber = new CubeGrabber();
+	public static CubeLifter cubeLifter = new CubeLifter();
 	public static OI oi;
 
 	Command m_autonomousCommand;

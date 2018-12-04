@@ -38,7 +38,7 @@ public class ClawMovementCommand extends Command {
 			currentSpeed += 0.03;
 			Robot.cubeGrabber.grab(currentSpeed);
 		}
-		else if (left_trigger > 0.10) { //on left trigger press -- but no right
+		else if  (left_trigger > 0.10) { //on left trigger press -- but no right
 			Robot.cubeGrabber.release(left_trigger);
 		} else {
 			currentSpeed = 0.15; //default case, keep it spinning for holding cubes

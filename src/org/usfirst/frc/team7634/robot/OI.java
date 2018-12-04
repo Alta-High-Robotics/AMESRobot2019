@@ -7,9 +7,14 @@
 
 package org.usfirst.frc.team7634.robot;
 
+import edu.wpi.first.wpilibj.buttons.Button;
 import org.usfirst.frc.team7634.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.XboxController;
+import org.usfirst.frc.team7634.robot.commands.CubeLowerCommand;
+import org.usfirst.frc.team7634.robot.commands.CubeRaiseCommand;
+import org.usfirst.frc.team7634.robot.controller.XboxButton;
+import sun.misc.Launcher;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -20,7 +25,11 @@ public class OI {
 	XboxController controller = new XboxController(port);
 
 	public OI() {
+		Button raise = new XboxButton(controller, XboxButton.Button.BumperRight);
+		Button lower = new XboxButton(controller, XboxButton.Button.BumperLeft);
 
+		raise.whileHeld(new CubeRaiseCommand());
+		lower.whileHeld(new CubeLowerCommand());
 	}
 	
 	public XboxController getController() {
