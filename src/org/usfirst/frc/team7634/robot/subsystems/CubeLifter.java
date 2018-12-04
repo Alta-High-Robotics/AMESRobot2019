@@ -6,14 +6,12 @@ import org.usfirst.frc.team7634.robot.RobotMap;
 
 public class CubeLifter extends Subsystem {
 
-    public double liftPos = 0.0;
+    public double liftPos = 0.0; //work on lift position later, for now, no function
 
     public Victor liftMotor = new Victor(RobotMap.WINCH_VICTOR);
 
     public void raise() {
         liftMotor.set(1);
-        liftPos++;
-        System.out.println(liftPos);
     }
 
     public void lower() {
