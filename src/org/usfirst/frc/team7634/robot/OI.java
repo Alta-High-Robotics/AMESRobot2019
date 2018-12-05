@@ -34,7 +34,7 @@ public class OI {
 
 		raise.whileHeld(new CubeRaiseCommand());
 		lower.whileHeld(new CubeLowerCommand());
-		spin.whenPressed(new SpinLauncherCommand());
+		spin.whileHeld(new SpinLauncherCommand());
 		release.whileHeld(new ReleaseBallCommand());
 	}
 	

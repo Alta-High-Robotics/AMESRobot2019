@@ -2,6 +2,7 @@ package org.usfirst.frc.team7634.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team7634.robot.Robot;
+import org.usfirst.frc.team7634.robot.RobotSettings;
 
 public class SpinLauncherCommand extends Command {
 
@@ -10,13 +11,15 @@ public class SpinLauncherCommand extends Command {
     }
 
     protected void initialize() {
-        Robot.ballLauncher.spinning = !Robot.ballLauncher.spinning; //on or off
+
     }
 
     @Override
     protected void execute() {
-        if (!Robot.ballLauncher.spinning) {
-            Robot.ballLauncher.spin(1.0); //create acceleration logic later.
+        if (Robot.ballLauncher.spinning) {
+            Robot.ballLauncher.spin(RobotSettings.LAUNCHER_SPEED * RobotSettings.LAUNCHER_DIRECTION); //create acceleration logic later.
+        } else {
+            Robot.ballLauncher.stop();
         }
     }
 
@@ -27,7 +30,7 @@ public class SpinLauncherCommand extends Command {
 
     @Override
     protected void end() {
-        Robot.ballLauncher.stop();
+        Robot.ballLauncher.spinning = !Robot.ballLauncher.spinning; //on or off
     }
 
     @Override

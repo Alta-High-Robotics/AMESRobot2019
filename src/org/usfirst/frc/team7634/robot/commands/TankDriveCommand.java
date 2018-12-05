@@ -13,17 +13,17 @@ import org.usfirst.frc.team7634.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team7634.robot.RobotSettings;
 
-/**
- * An example command.  You can replace me with your own command.
- */
-public class TankDriveCommand extends Command {
-	public TankDriveCommand() {
-		// Use requires() here to declare subsystem dependencies
-		requires(Robot.driveTrain);
-	}
+	/**
+	 * An example command.  You can replace me with your own command.
+	 */
+	public class TankDriveCommand extends Command {
+		public TankDriveCommand() {
+			// Use requires() here to declare subsystem dependencies
+			requires(Robot.driveTrain);
+		}
 
-	protected void initialize() {
-	}
+		protected void initialize() {
+		}
 
 	@Override
 	protected void execute() {

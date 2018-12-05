@@ -14,11 +14,10 @@ public class BallLauncher extends Subsystem {
     }
 
     public void stop() {
-        launcher.set(0);
+        spin(0);
     }
 
     @Override
     protected void initDefaultCommand() {
-
     }
 }
