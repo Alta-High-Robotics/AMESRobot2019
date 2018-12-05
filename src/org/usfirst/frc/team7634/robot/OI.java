@@ -13,6 +13,8 @@ import org.usfirst.frc.team7634.robot.RobotMap;
 import edu.wpi.first.wpilibj.XboxController;
 import org.usfirst.frc.team7634.robot.commands.CubeLowerCommand;
 import org.usfirst.frc.team7634.robot.commands.CubeRaiseCommand;
+import org.usfirst.frc.team7634.robot.commands.ReleaseBallCommand;
+import org.usfirst.frc.team7634.robot.commands.SpinLauncherCommand;
 import org.usfirst.frc.team7634.robot.controller.XboxButton;
 import sun.misc.Launcher;
 
@@ -27,9 +29,13 @@ public class OI {
 	public OI() {
 		Button raise = new XboxButton(controller, XboxButton.Button.BumperRight);
 		Button lower = new XboxButton(controller, XboxButton.Button.BumperLeft);
+		Button spin = new XboxButton(controller, XboxButton.Button.StickLeft);
+		Button release = new XboxButton(controller, XboxButton.Button.StickRight);
 
 		raise.whileHeld(new CubeRaiseCommand());
 		lower.whileHeld(new CubeLowerCommand());
+		spin.whenPressed(new SpinLauncherCommand());
+		release.whileHeld(new ReleaseBallCommand());
 	}
 	
 	public XboxController getController() {
