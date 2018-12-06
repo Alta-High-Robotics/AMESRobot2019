@@ -34,10 +34,11 @@ public class DriveTrain extends Subsystem {
 	public DifferentialDrive drive = new DifferentialDrive(leftSideDrive, rightSideDrive);
 
 	public double left_axis = 0.0, right_axis = 0.0;
+	public final double initSpeed = RobotSettings.DRIVE_SPEED; //speed during initialization
 
 	public void tankDrive() {
-		double spd = RobotSettings.DRIVE_SPEED;
-		drive.tankDrive(left_axis * spd, right_axis * spd);
+		double speed = RobotSettings.DRIVE_SPEED;
+		drive.tankDrive(left_axis * speed, right_axis * speed);
 	}
 
 	public void arcadeDrive() {

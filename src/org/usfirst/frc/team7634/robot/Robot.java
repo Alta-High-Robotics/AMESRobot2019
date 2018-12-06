@@ -31,6 +31,7 @@ public class Robot extends TimedRobot {
 	public static CubeLifter cubeLifter = new CubeLifter();
 	public static BallLauncher ballLauncher = new BallLauncher();
 	public static BallReleaser ballReleaser = new BallReleaser();
+	public static SpeedChanger speedChanger = new SpeedChanger();
 
 	public static OI oi;
 	Command m_autonomousCommand;

@@ -15,33 +15,29 @@ package org.usfirst.frc.team7634.robot;
  */
 public class RobotMap {
 	public static final int
-	    XBOX_PORT = 0,
+		XBOX_PORT = 0,
 
 		//servo for releasing ball
 		SERVO_MOTOR = 0,
 
 	    //drive train
 	    VICTOR_RIGHT1 = 1,
-	    VICTOR_RIGHT2 = 2,
-	    VICTOR_LEFT1 = 3,
-	    VICTOR_LEFT2 = 4,
+		VICTOR_RIGHT2 = 2,
+		VICTOR_LEFT1 = 3,
+		VICTOR_LEFT2 = 4,
 	    
 	    //winch
 		WINCH_VICTOR = 5,
-	    
+
 	    //launcher
-	    LAUNCHER_VICTOR = 6,
+		LAUNCHER_VICTOR = 6,
 	    
 	    //Munch-do (claw/cube-grabber)
-	    GRABBER_MOTOR1 = 7,
+		GRABBER_MOTOR1 = 7,
 		GRABBER_MOTOR2 = 8,
 
 
 	    //controller axis for drive train
-	    CONTROLLER_AXIS_LEFT = 1,
-	    CONTROLLER_AXIS_RIGHT = 5,
-
-		//controller axis for claws
-		LEFT_TRIGGER_AXIS = 3,
-		RIGHT_TRIGGER_AXIS = 4;
+		CONTROLLER_AXIS_LEFT = 1,
+		CONTROLLER_AXIS_RIGHT = 5;
 }
