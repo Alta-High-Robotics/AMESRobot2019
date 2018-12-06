@@ -33,7 +33,7 @@ public class OI {
 
 		raise.whileHeld(new CubeRaiseCommand());
 		lower.whileHeld(new CubeLowerCommand());
-		spin.whileHeld(new SpinLauncherCommand()); //rewrite using Button.toggleWhenPressed() after finishing fundamentals
+		spin.toggleWhenPressed(new SpinLauncherCommand());
 		release.whileHeld(new ReleaseBallCommand());
 		changeSpeedSlower.whileHeld(new ChangeSpeedCommand(RobotSettings.DRIVE_SPEED_SLOW));
 		changeSpeedDefault.whileHeld(new ChangeSpeedCommand(Robot.driveTrain.initSpeed));

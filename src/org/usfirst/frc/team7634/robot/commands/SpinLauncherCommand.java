@@ -16,11 +16,7 @@ public class SpinLauncherCommand extends Command {
 
     @Override
     protected void execute() {
-        if (Robot.ballLauncher.spinning) {
-            Robot.ballLauncher.spin(RobotSettings.LAUNCHER_SPEED * RobotSettings.LAUNCHER_DIRECTION); //create acceleration logic later.
-        } else {
-            Robot.ballLauncher.stop();
-        }
+        Robot.ballLauncher.spin(RobotSettings.LAUNCHER_SPEED * RobotSettings.LAUNCHER_DIRECTION);
     }
 
     @Override
@@ -30,7 +26,7 @@ public class SpinLauncherCommand extends Command {
 
     @Override
     protected void end() {
-        Robot.ballLauncher.spinning = !Robot.ballLauncher.spinning; //on or off
+        Robot.ballLauncher.stop();
     }
 
     @Override
