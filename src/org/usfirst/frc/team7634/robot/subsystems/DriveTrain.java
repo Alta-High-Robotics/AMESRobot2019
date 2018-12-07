@@ -7,13 +7,10 @@
 
 package org.usfirst.frc.team7634.robot.subsystems;
 
-import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.*;
 import org.usfirst.frc.team7634.robot.Robot;
 import org.usfirst.frc.team7634.robot.RobotMap;
 
-import edu.wpi.first.wpilibj.SpeedControllerGroup;
-import edu.wpi.first.wpilibj.Talon;
-import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import org.usfirst.frc.team7634.robot.RobotSettings;
@@ -27,6 +24,7 @@ public class DriveTrain extends Subsystem {
 	Victor left2 = new Victor(RobotMap.VICTOR_LEFT2);
 	Victor right1 = new Victor(RobotMap.VICTOR_RIGHT1);
 	Victor right2 = new Victor(RobotMap.VICTOR_RIGHT2);
+	ADXRS450_Gyro gyro  = new ADXRS450_Gyro(SPI.Port.kOnboardCS0);
 
 	//groups both motors as one drive, both motors required for movement
 	public SpeedControllerGroup leftSideDrive = new SpeedControllerGroup(left1, left2);
@@ -41,8 +39,10 @@ public class DriveTrain extends Subsystem {
 		drive.tankDrive(left_axis * speed, right_axis * speed);
 	}
 
-	public void arcadeDrive() {
-		drive.arcadeDrive(Robot.oi.getController().getY(GenericHID.Hand.kLeft), Robot.oi.getController().getX(GenericHID.Hand.kRight));
+	public void driveStraight(double kP) {
+		double angle = gyro.getAngle();
+		drive.arcadeDrive(RobotSettings.DRIVE_SPEED, -angle * kP);
+		Timer.delay(0.01);
 	}
 
 	@Override

@@ -7,6 +7,8 @@
 
 package org.usfirst.frc.team7634.robot;
 
+import edu.wpi.first.wpilibj.SPI;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -35,7 +37,6 @@ public class RobotMap {
 		//Munch-do (claw/cube-grabber)
 		GRABBER_MOTOR1 = 7,
 		GRABBER_MOTOR2 = 8,
-
 
 		//controller axis for drive train
 		CONTROLLER_AXIS_LEFT = 1,
