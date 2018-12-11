@@ -22,7 +22,6 @@ public class RobotMap {
 		//servo for releasing ball
 		SERVO_MOTOR = 0,
 
-
 		//drive train
 		VICTOR_RIGHT1 = 1,
 		VICTOR_RIGHT2 = 2,

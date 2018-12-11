@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team7634.robot.commands.autonomous.DriveStraightCommand;
 import org.usfirst.frc.team7634.robot.commands.TankDriveCommand;
 import org.usfirst.frc.team7634.robot.subsystems.*;
 import org.usfirst.frc.team7634.robot.subsystems.DriveTrain;
@@ -34,6 +35,7 @@ public class Robot extends TimedRobot {
 	public static SpeedChanger speedChanger = new SpeedChanger();
 
 	public static OI oi;
+	public static int timer = 0; //1 sec = 50
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 
@@ -77,7 +79,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		m_autonomousCommand = m_chooser.getSelected();
+		m_autonomousCommand = new DriveStraightCommand();
 
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
@@ -97,6 +99,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousPeriodic() {
+		timer++;
 		Scheduler.getInstance().run();
 	}
 
