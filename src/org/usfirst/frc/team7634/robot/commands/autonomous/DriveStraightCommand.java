@@ -9,13 +9,17 @@ public class DriveStraightCommand extends Command {
 
     public DriveTrain drive = Robot.driveTrain;
     public static double error_integral = 0.0;
+    private int seconds_run;
 
-    public DriveStraightCommand() {
-        requires(Robot.ballReleaser);
+    /**
+     * @param secs Input as seconds for how long to drive straight for.
+     * */
+    public DriveStraightCommand(double secs) {
+        this.seconds_run = (int)(secs*50); //converts argument to seconds (which is 1/50 of a sec), refer to Robot#timer for information
+        requires(Robot.driveTrain);
     }
 
     protected void initialize() {
-        drive.gyro.reset();
     }
 
     /**
@@ -25,10 +29,10 @@ public class DriveStraightCommand extends Command {
     protected void execute() {
         drive.error_angle = -drive.gyro.getAngle();
         this.error_integral += (drive.error_angle * 0.02);
-        //System.out.println("error angle: " + drive.error_angle);
-
         double output = (drive.kP * drive.error_angle) + (drive.kI * this.error_integral);
         drive.driveStraight(output);
+
+        //System.out.println("error angle: " + drive.error_angle);
         //System.out.println("Injected drive: " + output);
         //System.out.println("@ " + drive.error_angle + "degrees | " + this.error_integral + " integral");
         //System.out.println("Current heading: " + drive.gyro.getAngle());
@@ -40,7 +44,7 @@ public class DriveStraightCommand extends Command {
     }
 
     public boolean stop() {
-        if (Robot.timer > RobotSettings.TRIAL_ONE) {
+        if (Robot.timer > this.seconds_run) {
             return true;
         }
         return false;
