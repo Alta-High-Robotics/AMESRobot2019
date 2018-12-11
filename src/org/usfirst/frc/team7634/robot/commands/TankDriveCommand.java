@@ -18,7 +18,6 @@ import org.usfirst.frc.team7634.robot.RobotSettings;
 	 */
 	public class TankDriveCommand extends Command {
 		public TankDriveCommand() {
-			// Use requires() here to declare subsystem dependencies
 			requires(Robot.driveTrain);
 		}
 
@@ -27,9 +26,9 @@ import org.usfirst.frc.team7634.robot.RobotSettings;
 
 	@Override
 	protected void execute() {
-		Robot.driveTrain.left_axis = Robot.oi.getController().getRawAxis(RobotMap.CONTROLLER_AXIS_LEFT) * RobotSettings.DRIVE_DIRECTION;
-		Robot.driveTrain.right_axis = Robot.oi.getController().getRawAxis(RobotMap.CONTROLLER_AXIS_RIGHT) * RobotSettings.DRIVE_DIRECTION;
-		Robot.driveTrain.tankDrive();
+		double left_axis = Robot.oi.getController().getRawAxis(RobotMap.CONTROLLER_AXIS_LEFT) * RobotSettings.DRIVE_DIRECTION;
+		double right_axis = (Robot.oi.getController().getRawAxis(RobotMap.CONTROLLER_AXIS_RIGHT) * RobotSettings.DRIVE_DIRECTION)*0.9; //right_axis will always be 90% of left because of design flaw
+		Robot.driveTrain.tankDrive(left_axis, right_axis);
 	}
 
 	@Override

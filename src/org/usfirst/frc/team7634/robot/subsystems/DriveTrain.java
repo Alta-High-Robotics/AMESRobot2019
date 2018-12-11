@@ -37,10 +37,9 @@ public class DriveTrain extends Subsystem {
 
 	public ADXRS450_Gyro gyro  = new ADXRS450_Gyro(SPI.Port.kOnboardCS0);
 
-	public double left_axis = 0.0, right_axis = 0.0;
 	public final double initSpeed = RobotSettings.DRIVE_SPEED; //speed during initialization
 
-	public void tankDrive() {
+	public void tankDrive(double left_axis, double right_axis) {
 		double speed = RobotSettings.DRIVE_SPEED;
 		drive.tankDrive(left_axis * speed, right_axis * speed);
 	}
