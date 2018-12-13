@@ -8,8 +8,8 @@ import org.usfirst.frc.team7634.robot.RobotSettings;
 public class AutonomousCommands extends CommandGroup {
 
     public AutonomousCommands() {
-        addSequential(new DriveStraightCommand(RobotSettings.TRIAL_ONE));
-        //addSequential(new *somelaunchername*Command());
-        addSequential(new DriveStraightCommand(RobotSettings.TRIAL_TWO));
+        addSequential(new DriveStraightCommand(RobotSettings.TRIAL_ONE,0.65, true));
+        addSequential(new AutoLauncherCommand());
+        addSequential(new DriveStraightCommand(RobotSettings.TRIAL_TWO, 0.65, false));
     }
 }

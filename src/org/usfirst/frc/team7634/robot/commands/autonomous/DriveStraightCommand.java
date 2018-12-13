@@ -10,16 +10,30 @@ public class DriveStraightCommand extends Command {
     public DriveTrain drive = Robot.driveTrain;
     public static double error_integral = 0.0;
     private int seconds_run;
-
+    private boolean shouldReset = false;
+    private double driveSpeed = RobotSettings.DEFAULT_AUTONOMOUS_DRIVE_SPEED;
     /**
      * @param secs Input as seconds for how long to drive straight for.
      * */
-    public DriveStraightCommand(double secs) {
-        this.seconds_run = (int)(secs*50); //converts argument to seconds (which is 1/50 of a sec), refer to Robot#timer for information
+    public DriveStraightCommand(double secs, double speed, boolean resetGyro) {
+        this.seconds_run = (int) (secs * 50);  //converts argument to seconds (which is 1/50 of a sec), refer to Robot#timer for information
+        this.shouldReset = resetGyro;
+        this.driveSpeed = speed;
         requires(Robot.driveTrain);
     }
 
+    public DriveStraightCommand(double secs) {
+        this.seconds_run = (int) (secs * 50); //converts argument to seconds (which is 1/50 of a sec), refer to Robot#timer for information
+        this.shouldReset = false;
+        requires(Robot.driveTrain);
+    }
+
+
     protected void initialize() {
+        Robot.timer = 0;
+        if (shouldReset) {
+            drive.gyro.reset();
+        }
     }
 
     /**
@@ -30,7 +44,7 @@ public class DriveStraightCommand extends Command {
         drive.error_angle = -drive.gyro.getAngle();
         this.error_integral += (drive.error_angle * 0.02);
         double output = (drive.kP * drive.error_angle) + (drive.kI * this.error_integral);
-        drive.driveStraight(output);
+        drive.driveStraight(this.driveSpeed, output);
 
         //System.out.println("error angle: " + drive.error_angle);
         //System.out.println("Injected drive: " + output);
@@ -43,7 +57,7 @@ public class DriveStraightCommand extends Command {
         return stop();
     }
 
-    public boolean stop() {
+    private boolean stop() {
         if (Robot.timer > this.seconds_run) {
             return true;
         }

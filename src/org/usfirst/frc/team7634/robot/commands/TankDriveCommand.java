@@ -27,7 +27,7 @@ import org.usfirst.frc.team7634.robot.RobotSettings;
 	@Override
 	protected void execute() {
 		double left_axis = Robot.oi.getController().getRawAxis(RobotMap.CONTROLLER_AXIS_LEFT) * RobotSettings.DRIVE_DIRECTION;
-		double right_axis = (Robot.oi.getController().getRawAxis(RobotMap.CONTROLLER_AXIS_RIGHT) * RobotSettings.DRIVE_DIRECTION)*0.9; //right_axis will always be 90% of left because of design flaw
+		double right_axis = (Robot.oi.getController().getRawAxis(RobotMap.CONTROLLER_AXIS_RIGHT) * RobotSettings.DRIVE_DIRECTION); //right_axis will always be 90% of left because of design flaw
 		Robot.driveTrain.tankDrive(left_axis, right_axis);
 	}
 

@@ -9,11 +9,11 @@ public class BallReleaser extends Subsystem {
     Servo releaser = new Servo(RobotMap.SERVO_MOTOR);
 
     public void open() {
-        releaser.set(1.0);
+        releaser.set(0.0);
     }
 
     public void close() {
-        releaser.set(0);
+        releaser.set(1.0);
     }
 
     @Override

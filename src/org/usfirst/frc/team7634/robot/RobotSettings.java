@@ -16,16 +16,24 @@ public class RobotSettings {
         LAUNCHER_DIRECTION = -1,
 
         //autonomous settings & PID corrections
-        AUTONOMOUS_DRIVE_SPEED = 0.8,
-        kP = 0.1,
-        kI = 0.05,
+        DEFAULT_AUTONOMOUS_DRIVE_SPEED = 0.65,
+        kP = 0.11,
+        kI = 0.06,
 
         //autonomous timings (in seconds)
-        TRIAL_ONE = 2,
-        TRIAL_TWO = 2.5;
+        TRIAL_ONE = 4.2, // 45.43in/sec at TSA room for Robot speed 0.65
+        BALL_LAUNCH = 5.0,
+        TRIAL_TWO = 4.3;
 
     public static void setDriveSpeed(double speed) {
         DRIVE_SPEED = speed;
     }
-    public static void setAutonomousDriveSpeed(double speed) { AUTONOMOUS_DRIVE_SPEED = speed; }
+
+    public static void setDefaultAutonomousDriveSpeed(double speed) {
+        DEFAULT_AUTONOMOUS_DRIVE_SPEED = speed;
+    }
+
+    public static int convertSecondsToTimerUnit(double secs) {
+        return (int) (secs * 50);
+    }
 }

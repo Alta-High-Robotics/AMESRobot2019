@@ -129,4 +129,8 @@ public class Robot extends TimedRobot {
 	@Override
 	public void testPeriodic() {
 	}
+
+	private void resetTimer() {
+		timer = 0;
+	}
 }

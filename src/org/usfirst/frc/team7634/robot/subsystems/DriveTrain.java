@@ -44,8 +44,7 @@ public class DriveTrain extends Subsystem {
 		drive.tankDrive(left_axis * speed, right_axis * speed);
 	}
 
-	public void driveStraight(double output) {
-		double velocity = RobotSettings.AUTONOMOUS_DRIVE_SPEED;
+	public void driveStraight(double velocity, double output) {
 		drive.arcadeDrive(velocity, output);
 	}
 
